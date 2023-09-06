@@ -14,7 +14,7 @@
    - Perform stemming or lemmatization to reduce words to their root form. This can help in reducing the dimensionality of your data and improving model performance.
 
 **5. Padding Sequences:**
-   - Since LSTMs require sequences of fixed length, you should pad or truncate your tokenized sequences to a uniform length. You can use libraries like Keras' `pad_sequences` for this.
+   - Since LSTMs require sequences of fixed length, you should pad or truncate your tokenized sequences to a uniform length. You can use libraries like 'Keras','pad_sequences' for this.
 
 **6. Word Embeddings:**
    - Convert your tokenized and padded sequences into word embeddings. You can use pre-trained embeddings like Word2Vec or GloVe, or train your own embeddings based on your dataset.
