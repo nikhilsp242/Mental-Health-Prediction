@@ -1,6 +1,6 @@
 # This file has the explanation to all the code in the project .
 
 ## The directories in repo are :
-  - [data](https://github.com/nikhilsp242/Mental-Health-Prediction/edit/main/data/README.md)
+  - [data](https://github.com/nikhilsp242/Mental-Health-Prediction/tree/main/data)
   - examples
   - src
