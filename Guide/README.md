@@ -2,5 +2,5 @@
 
 ## The main directories in repo are :
   - [data](https://github.com/nikhilsp242/Mental-Health-Prediction/tree/main/data)
-  - examples
-  - src
+  - [examples](https://github.com/nikhilsp242/Mental-Health-Prediction/tree/main/examples)
+  - [src](https://github.com/nikhilsp242/Mental-Health-Prediction/tree/main/src)
