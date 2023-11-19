@@ -25,4 +25,4 @@
 
    - **`min_word_count`**: This parameter is set to 1, indicating that words with a count below this threshold will be considered during preprocessing. Words occurring less than this count might be filtered out.
 
-Overall, this configuration file appears to define settings for a preprocessing step in the project, specifying the input file, tokenizer, and some parameters related to word count. It's likely used to customize how the text data is prepared before further processing.
+> Basically, this configuration file defines settings for text preprocessing in a project. It specifies the input JSON file, sets a space-based tokenizer, and includes parameters for word count filtering during the preprocessing step.`
