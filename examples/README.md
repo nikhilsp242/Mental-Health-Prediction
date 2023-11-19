@@ -67,3 +67,22 @@
             - **`params`**: This section is empty, but it could potentially contain further parameters for configuring the BERT embedding layer. As it stands, it indicates that the default configuration for the BERT embedding layer is used.
 
 > In summary, this configuration file sets up a deep learning trainer with a focus on accuracy as the scoring method. The deep learning model is configured with a BERT-based embedding layer, and the specific parameters for the BERT embedding layer are left at their default values. This suggests that the model is designed for a task where BERT embeddings are expected to provide meaningful representations for the input data during training.
+
+## trainer-config-dictokenizer-lstm.json
+
+```json
+{
+    "__class__": "DLTrainerConfig",
+    "params": {
+        "score_method": "accuracy"
+    }
+}
+```
+
+1. **`__class__`**: The configuration file starts with the `__class__` field, indicating the class type. In this case, it's "DLTrainerConfig," implying that this configuration is for a deep learning trainer.
+
+2. **`params`**: This field contains the parameters for the deep learning trainer.
+
+   - **`score_method`**: The scoring method during training is set to "accuracy." This implies that accuracy is used as the metric to evaluate the performance of the model during training.
+
+> This configuration file is concise and lacks detailed model specifications. It suggests that the deep learning model associated with this configuration may be using a default or predefined architecture for training, as there is no explicit model configuration provided. The focus is on tracking accuracy as the primary metric for evaluating the performance of the model during the training process.
