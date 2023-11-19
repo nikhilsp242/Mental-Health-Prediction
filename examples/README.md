@@ -17,7 +17,7 @@
 
 2. **`params`**: This field contains the actual parameters for the preprocessing step. Let's break down each parameter:
 
-   - **`json_file`**: This parameter specifies the input JSON file as "twitter-1h1h.json." It seems that this file is part of the input data for the preprocessing.
+   - **`json_file`**: This parameter is used to specify the name of the input JSON file. It is set as "twitter-1h1h.json."
 
    - **`tokenizer`**: The tokenizer parameter is set to "space." This suggests that a space-based tokenizer is used for processing the text data. Tokenization is the process of breaking down text into smaller units, and in this case, it seems to be using spaces as delimiters.
 
@@ -25,4 +25,4 @@
 
    - **`min_word_count`**: This parameter is set to 1, indicating that words with a count below this threshold will be considered during preprocessing. Words occurring less than this count might be filtered out.
 
-> Basically, this configuration file defines settings for text preprocessing in a project. It specifies the input JSON file, sets a space-based tokenizer, and includes parameters for word count filtering during the preprocessing step.`
+> Basically, this configuration file defines settings for text preprocessing in the project. It specifies the input JSON file, sets a space-based tokenizer, and includes parameters for word count filtering during the preprocessing step.`
