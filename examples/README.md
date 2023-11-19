@@ -68,7 +68,7 @@
 
 > In summary, this configuration file sets up a deep learning trainer with a focus on accuracy as the scoring method. The deep learning model is configured with a BERT-based embedding layer, and the specific parameters for the BERT embedding layer are left at their default values. This suggests that the model is designed for a task where BERT embeddings are expected to provide meaningful representations for the input data during training.
 
-## trainer-config-dictokenizer-lstm.json
+## 3. trainer-config-dictokenizer-lstm.json
 
 ```json
 {
