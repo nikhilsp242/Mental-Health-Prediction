@@ -7,7 +7,7 @@
   - [src](https://github.com/nikhilsp242/Mental-Health-Prediction/tree/main/src)
 
 ## Architecture diagrams :
-1.
+### 1.
 ![image](https://github.com/nikhilsp242/Mental-Health-Prediction/assets/112267674/d6ae86b7-4baf-4722-9eb2-e13038476d03)
 
 This architecture diagram outlines a common structure used in natural language processing (NLP) tasks, particularly for tasks like sentiment analysis or text classification. Let's break down each component:
@@ -39,3 +39,40 @@ This architecture diagram outlines a common structure used in natural language p
    - The final output consists of probabilities representing the likelihood of the input sequence belonging to a particular class. In binary classification, there are two probabilities, often summing up to 1.
 
 In summary, this architecture leverages an Embedding Layer to convert input IDs into dense vectors, stacked LSTM layers to capture sequential dependencies, and a final layer with a Sigmoid activation for binary classification. This structure is commonly used for tasks where understanding the sequential nature of the input data is crucial.
+
+
+### 2.
+![image](https://github.com/nikhilsp242/Mental-Health-Prediction/assets/112267674/ec617f44-61a8-4f3d-a7b6-a32fc8324bea)
+
+This diagram outlines the operations within an LSTM (Long Short-Term Memory) cell, which is a type of recurrent neural network (RNN) architecture. The LSTM cell is designed to capture and remember long-term dependencies in sequential data. Let's break down the components and operations:
+
+1. **Input (Xₜ):**
+   - \(Xₜ\) represents the input at the current time step (\(t\)) in the sequence. This could be the word embedding or input representation for the current word/token.
+
+2. **Previous Hidden State (hₜ₋₁):**
+   - \(hₜ₋₁\) is the hidden state from the previous time step (\(t-1\)). It carries information from the past into the current time step and acts as the "memory" of the LSTM cell.
+
+3. **Memory Cell:**
+   - The "memory" or "cell state" is represented by the variable \(Sₜ₋₁\) (memory from the previous time step). This serves as a long-term memory component.
+
+4. **LSTM Operations:**
+   - **Forget Gate:**
+     - The "Acts as forget gate" block represents the forget gate of the LSTM. It takes both the previous hidden state (\(hₜ₋₁\)) and the current input (\(Xₜ\)) as input.
+     - The forget gate decides what information from the previous memory state (\(Sₜ₋₁\)) to forget and what to remember. This is done through element-wise multiplication and addition.
+
+   - **Input Gate:**
+     - The "Acts as an input gate" block represents the input gate of the LSTM. It determines which information from the current input (\(Xₜ\)) should be added to the memory cell.
+     - This gate involves element-wise multiplication and addition.
+
+   - **Memory Update:**
+     - The operations involving the forget gate, previous memory state, and input gate result in an updated memory state (\(Sₜ\)). This is updated information considering both the past memory (\(Sₜ₋₁\)) and the relevant information from the current input (\(Xₜ\)).
+
+   - **Output Gate:**
+     - The output gate determines what information from the updated memory state (\(Sₜ\)) should be passed as the hidden state (\(hₜ\)) to the next time step.
+     - The output gate involves element-wise multiplication and addition.
+
+5. **Output (hₜ):**
+   - \(hₜ\) represents the hidden state at the current time step (\(t\)). It carries information to the next time step and serves as the output of the LSTM cell.
+
+In summary, an LSTM cell utilizes a combination of forget gates, input gates, and output gates to selectively update its memory state and hidden state. This architecture allows LSTMs to capture long-term dependencies in sequential data, making them effective for tasks such as natural language processing where understanding context over longer sequences is important.
+
