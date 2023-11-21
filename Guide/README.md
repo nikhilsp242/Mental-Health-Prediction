@@ -8,7 +8,9 @@
 
 ## Architecture diagrams :
 ### 1.
-![image](https://github.com/nikhilsp242/Mental-Health-Prediction/assets/112267674/d6ae86b7-4baf-4722-9eb2-e13038476d03)
+
+![image](https://github.com/nikhilsp242/Mental-Health-Prediction/assets/112267674/b543f21d-1baf-48a9-9991-4416742049e9)
+
 
 This architecture diagram outlines a common structure used in natural language processing (NLP) tasks, particularly for tasks like sentiment analysis or text classification. Let's break down each component:
 
@@ -42,7 +44,8 @@ In summary, this architecture leverages an Embedding Layer to convert input IDs 
 
 
 ### 2.
-![image](https://github.com/nikhilsp242/Mental-Health-Prediction/assets/112267674/ec617f44-61a8-4f3d-a7b6-a32fc8324bea)
+![image](https://github.com/nikhilsp242/Mental-Health-Prediction/assets/112267674/0b4db900-494f-4e2b-901a-a4e5c437d671)
+
 
 This diagram outlines the operations within an LSTM (Long Short-Term Memory) cell, which is a type of recurrent neural network (RNN) architecture. The LSTM cell is designed to capture and remember long-term dependencies in sequential data. Let's break down the components and operations:
 
