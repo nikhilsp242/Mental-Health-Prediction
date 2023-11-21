@@ -136,4 +136,4 @@
 
                   - **`params`**: This section is empty, indicating that the default configuration for the RNN is used. Depending on the specific implementation, this could include parameters such as the type of RNN cell, the number of layers, and other architectural details.
 
-In summary, this configuration file sets up a deep learning trainer with a focus on accuracy as the scoring method. The deep learning model is configured with a multi-layer recurrent neural network (MRNN) classifier, and the RNN itself is configured with default parameters. This suggests that the model architecture involves an RNN for sequence processing, and the training objective is to maximize accuracy.
+> In summary, this configuration file sets up a deep learning trainer with a focus on accuracy as the scoring method. The deep learning model is configured with a multi-layer recurrent neural network (MRNN) classifier, and the RNN itself is configured with default parameters. This suggests that the model architecture involves an RNN for sequence processing, and the training objective is to maximize accuracy.
