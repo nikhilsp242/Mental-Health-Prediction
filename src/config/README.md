@@ -107,3 +107,83 @@ This code defines a configuration class, `RNNConfig`, which represents the confi
   - If `True`, the RNN becomes bidirectional. Default is `False`.
 
 This configuration class provides a convenient way to specify the settings for RNN layers in your neural network models. It allows you to easily customize parameters such as the type of RNN, hidden size, number of layers, and more. The default values are set to common values, but you can override them when creating an instance of this configuration.
+
+## 5. criterion.py
+These are configuration classes related to loss functions for your machine learning or deep learning models:
+
+1. **`CriterionConfig` class**:
+   - Inherits from `ConfigBase` and serves as the base class for criterion configurations.
+   - Contains a single parameter:
+      - **`use_cuda`**: Whether to use GPU. Default is `None`.
+
+2. **`CrossEntropyLossConfig` class** (Configuration for Cross Entropy Loss):
+   - Inherits from `CriterionConfig` and extends the base class.
+   - Adds the following parameters:
+      - **`weight`**: A manual rescaling weight given to each class. Default is `None`.
+      - **`reduction`**: Specifies the reduction to apply to the output. Choices are 'none', 'mean', or 'sum'. Default is 'mean'.
+      - **`label_smooth_eps`**: Whether to apply label smoothing. Default is `None`.
+
+3. **`BinaryCrossEntropyLossConfig` class** (Configuration for Binary Cross Entropy Loss):
+   - Inherits from `CriterionConfig` and extends the base class.
+   - Adds the same parameters as `CrossEntropyLossConfig`.
+
+These classes provide a way to configure the settings for different types of loss functions, such as Cross Entropy Loss or Binary Cross Entropy Loss. They allow you to specify parameters like class weights, reduction method, and whether to apply label smoothing. The default values are set for common use cases, and you can customize them as needed when creating instances of these configurations.
+
+## 6. data_loader.py
+This code defines a configuration class for data loading in your machine learning or deep learning project. Here's a brief explanation:
+
+- **`DataLoaderConfig` class**:
+   - Inherits from `ConfigBase` and serves as the configuration class for data loading.
+   - Defines several parameters for configuring data loading:
+      - **`json_file`**: Path to the JSON file. Default is set to a file named "twitter-1h1h.json" in the "data" directory.
+      - **`train_file`**, **`test_file`**, **`valid_file`**: Paths to the training, testing, and validation data files, respectively. All are set to the same default JSON file.
+      - **`raw_data_path`**: Path to the raw data file. Default is set to "msa.joblib" in the "data" directory.
+      - **`batch_size`**: Number of samples per batch to load. Default is `32`.
+      - **`max_len`**: Maximum length of the sequences. Default is `10`.
+      - **`shuffle`**: If `True`, reshuffle the data at every epoch. Default is `False`.
+      - **`num_workers`**: Number of subprocesses to use for data loading. Default is `0` (loading in the main process).
+      - **`pin_memory`**: If `True`, the data loader will copy Tensors into CUDA pinned memory before returning them. Default is `True`.
+      - **`drop_last`**: If `True`, drop the last incomplete batch. Default is `True`.
+
+   - Also initializes file paths using the `os.path.join` method to create the full path for each file in the "data" directory.
+
+This configuration class allows you to easily customize various aspects of data loading, such as file paths, batch size, and shuffling behavior. It follows a modular and structured approach, making it easier to manage and modify data loading settings in your project. 
+
+## 7. dl_model.py
+This code defines a configuration class, `DLModelConfig`, for configuring a deep learning model. Here's a brief explanation:
+
+- **`DLModelConfig` class**:
+   - Inherits from `ConfigBase` and serves as the configuration class for a deep learning model.
+   - Contains two main components:
+      - **`embedding_layer`**: Configuration for the embedding layer of the model. Default is set to `StaticEmbeddingLayerConfig()`.
+      - **`classifier`**: Configuration for the classifier layer of the model. Default is set to `RNNClassifierConfig()`.
+
+   - The docstring indicates that a deep learning model can be divided into two main components: the embedding layer and the classifier layer. It mentions possible options for each component, such as Word2Vec, Glove, BERT for embeddings, and TextCNN, fully connected layers, TextRNN for classifiers.
+
+   - This configuration class provides a way to easily switch between different types of embedding layers and classifiers when configuring your deep learning model. The default choices are `StaticEmbeddingLayerConfig()` for the embedding layer and `RNNClassifierConfig()` for the classifier layer.
+
+This modular approach allows for flexibility in configuring different components of the deep learning model.
+
+## 8. embedding_layer.py
+This code defines configuration classes for embedding layers in your machine learning or deep learning project. Here's a brief explanation:
+
+1. **`EmbeddingLayerConfig` class**:
+   - Inherits from `ConfigBase` and serves as the base configuration class for embedding layers.
+   - This class is currently empty but can be used as a common base for embedding layer configurations.
+
+2. **`StaticEmbeddingLayerConfig` class** (Configuration for Static Word Embeddings):
+   - Inherits from `EmbeddingLayerConfig` and extends the base class.
+   - Contains the following parameters:
+      - **`dim`**: Set the dimension of word vectors to `300` by default.
+      - **`method`**: Specify the method for embedding initialization. Choices are "random" or "pretrained," with "random" as the default choice.
+      - **`pretrained_path`**: Specify the path to pretrained word vectors (valid when the method is "pretrained"). Default is `None`.
+      - **`dictionary`**: Dictionary (optional), determined at runtime. Default is `None`.
+
+3. **`BertEmbeddingLayerConfig` class** (Configuration for BERT Word Embeddings):
+   - Inherits from `EmbeddingLayerConfig` and extends the base class.
+   - Contains the following parameters:
+      - **`dim`**: Set the dimension of hidden states to `768` by default.
+      - **`model_dir`**: Specify the directory containing the BERT pre-trained model files. Default is "bert-base-uncased."
+
+These configuration classes provide a way to configure different types of embedding layers, such as static word embeddings (Word2Vec, Glove, or randomly initialized vectors) and BERT word embeddings. They allow you to customize parameters such as the dimension of word vectors, initialization method, and paths to pretrained vectors.
+
