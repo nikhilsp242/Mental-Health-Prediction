@@ -103,3 +103,41 @@ train_data_loader, valid_data_loader, test_data_loader = build_data_loaders(data
 ```
 
 This code seems to be designed for handling datasets for text classification tasks, supporting both traditional dictionary-based text processing and BERT-based tokenization.
+
+## 4. raw.py
+This code defines a `MSARawData` class for preprocessing data for text classification. Let's break down the key components:
+
+### `MSARawData` Class:
+
+1. **Initialization:**
+   - Takes a `PreprocessConfig` object as a configuration.
+   - Creates a tokenizer based on the specified tokenizer choice in the configuration.
+   - Builds a vocabulary dictionary (`Dictionary` object) and a label list from a large file specified in the configuration.
+   - Builds a label-to-id mapping.
+
+2. **Methods:**
+   - `_build_dictionary_from_file`: Reads the data from a large file in chunks, tokenizes the text, and builds a vocabulary dictionary.
+   - `read_file_in_chunks`: Helper function to read a file in chunks.
+   - `describe`: Outputs information about the data, including label distributions and dictionary size.
+   - `get_label_2_id`: Returns the label-to-id mapping.
+
+3. **Attributes:**
+   - `config`: A `PreprocessConfig` object containing preprocessing settings.
+   - `tokenizer`: A tokenizer created based on the specified choice in the configuration.
+   - `dictionary`: A vocabulary dictionary (`Dictionary` object) built from the training data.
+   - `labelList`: A list of labels extracted from the data file.
+   - `label2id`: A label-to-id mapping.
+
+### Usage Example:
+
+```python
+config = PreprocessConfig(...)
+msa_raw_data = MSARawData(config)
+msa_raw_data.describe()
+label_to_id = msa_raw_data.get_label_2_id()
+```
+
+### Note:
+- This class is designed to preprocess data for text classification, including building a vocabulary dictionary and extracting label information.
+- It uses a tokenizer to tokenize text data.
+- The `describe` method provides insights into label distributions and the size of the vocabulary dictionary.
