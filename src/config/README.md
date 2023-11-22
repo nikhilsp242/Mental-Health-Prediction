@@ -1,4 +1,36 @@
-## 2.
+## 1. __init__.py
+This code appears to be importing configuration classes from various modules within your project. Let's break down what each import statement is doing:
+
+1. **`from .data_loader import DataLoaderConfig`**:
+   - Importing the `DataLoaderConfig` class from the `data_loader` module.
+
+2. **`from .embedding_layer import StaticEmbeddingLayerConfig, BertEmbeddingLayerConfig`**:
+   - Importing the `StaticEmbeddingLayerConfig` and `BertEmbeddingLayerConfig` classes from the `embedding_layer` module.
+
+3. **`from .dl_model import DLModelConfig`**:
+   - Importing the `DLModelConfig` class from the `dl_model` module.
+
+4. **`from .classifier import ClassifierConfig, RNNClassifierConfig, MRNNClassifierConfig`**:
+   - Importing the `ClassifierConfig`, `RNNClassifierConfig`, and `MRNNClassifierConfig` classes from the `classifier` module.
+
+5. **`from .components import RNNConfig`**:
+   - Importing the `RNNConfig` class from the `components` module.
+
+6. **`from .preprocess import PreprocessConfig`**:
+   - Importing the `PreprocessConfig` class from the `preprocess` module.
+
+7. **`from .trainer import DLTrainerConfig`**:
+   - Importing the `DLTrainerConfig` class from the `trainer` module.
+
+8. **`from .criterion import CriterionConfig, CrossEntropyLossConfig, BinaryCrossEntropyLossConfig`**:
+   - Importing the `CriterionConfig`, `CrossEntropyLossConfig`, and `BinaryCrossEntropyLossConfig` classes from the `criterion` module.
+
+These import statements are bringing in various configuration classes from different modules, and it suggests that your project is structured in a modular way, with each module containing configurations related to a specific aspect of your machine learning or deep learning pipeline (data loading, embedding, model architecture, classifier, components, preprocessing, training, and criteria).
+
+Feel free to provide more code or ask specific questions about any of these configurations or modules!
+
+
+## 2. base.py
 This Python code defines a base class for creating configuration objects with default values and methods for working with these configurations. Here's a brief explanation:
 
 - **`ConfigBaseMeta` class (metaclass)**:
