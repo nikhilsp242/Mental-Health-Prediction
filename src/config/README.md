@@ -76,3 +76,34 @@ Overall, these configuration classes provide a structured way to define and mana
   - Implements a `dump` method to save the default configuration to a JSON file.
 
 This code provides a flexible and consistent way to define and work with configuration objects in Python, particularly in the context of machine learning or deep learning projects where configurations often involve nested structures and default values.
+
+## 4. components.py
+This code defines a configuration class, `RNNConfig`, which represents the configuration settings for recurrent neural networks (RNNs). Here's a breakdown of the class attributes:
+
+- **`input_size`**:
+  - Represents the dimension of the embedding layer. Default is `None`.
+
+- **`rnn_type`**:
+  - Specifies the type of RNN to use. Choices are "RNN," "GRU," or "LSTM."
+  - Default is "LSTM."
+
+- **`hidden_size`**:
+  - The number of features in the hidden state (\(h\)).
+  - Default is `256`.
+
+- **`num_layers`**:
+  - Number of recurrent layers. Setting `num_layers=2` would mean stacking two RNN layers.
+  - Default is `2`.
+
+- **`bias`**:
+  - If `False`, the layer does not use bias weights \(b_{ih}\) and \(b_{hh}\).
+  - Default is `True`.
+
+- **`dropout`**:
+  - If non-zero, introduces a Dropout layer on the outputs of each RNN layer.
+  - Default is `0.0`.
+
+- **`bidirectional`**:
+  - If `True`, the RNN becomes bidirectional. Default is `False`.
+
+This configuration class provides a convenient way to specify the settings for RNN layers in your neural network models. It allows you to easily customize parameters such as the type of RNN, hidden size, number of layers, and more. The default values are set to common values, but you can override them when creating an instance of this configuration.
