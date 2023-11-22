@@ -187,3 +187,91 @@ This code defines configuration classes for embedding layers in your machine lea
 
 These configuration classes provide a way to configure different types of embedding layers, such as static word embeddings (Word2Vec, Glove, or randomly initialized vectors) and BERT word embeddings. They allow you to customize parameters such as the dimension of word vectors, initialization method, and paths to pretrained vectors.
 
+## 9. optimizer.py
+This code defines configuration classes for various optimization algorithms in the context of deep learning. Here's a brief explanation:
+
+1. **`OptimizerConfig` class**:
+   - Inherits from `ConfigBase` and serves as the base configuration class for optimizers.
+   - Contains parameters for learning rates (`embedding_lr` and `lr`) and the epoch at which the embedding layer will start training (`static_epoch`).
+
+2. **Specific optimizer configuration classes** (e.g., `AdamConfig`, `AdadeltaConfig`):
+   - Each class corresponds to a specific optimization algorithm.
+   - Inherits from `OptimizerConfig` and extends the base class with algorithm-specific parameters.
+   - Provides default values for parameters such as betas, epsilons, weight decays, and other hyperparameters specific to each optimizer.
+
+These configuration classes allow you to easily configure and switch between different optimization algorithms for training your deep learning models. The parameters are set with default values that are commonly used, but you can customize them as needed.
+
+## 10. preprocess.py
+This code defines a configuration class for data preprocessing in your machine learning or deep learning project. Here's a brief explanation:
+
+- **`PreprocessConfig` class**:
+   - Inherits from `ConfigBase` and serves as the configuration class for data preprocessing.
+   - Contains parameters for configuring various aspects of data preprocessing:
+      - **`json_file`**: Default file name for the training, validation, and testing datasets. Set to "twitter-1h1h.json" by default.
+      - **`datadir`**: Default directory for dataset storage. It's set to the "data" directory in the parent directory of the current working directory.
+      - **`tokenizer`**: Tokenizer choice for text processing, such as splitting text into words or characters. Possible choices are "space" or "char," and the default is "space."
+      - **`nwords`**: Number of words to retain in the vocabulary. `-1` indicates no limit on dictionary size.
+      - **`min_word_count`**: Minimum word count required for a word to be included in the dictionary. The default is set to `1`.
+
+   - The class initializes default file names and directories for datasets, the tokenizer choice, and parameters related to vocabulary size and word count.
+
+This configuration class allows you to easily customize various aspects of data preprocessing, such as file names, directories, and tokenization methods.
+
+## 11. scheduler.py
+This code defines configuration classes for learning rate schedulers in the context of training deep learning models. Here's a brief explanation:
+
+1. **`SchedulerConfig` class**:
+   - Inherits from `ConfigBase` and serves as the base configuration class for learning rate schedulers.
+   - This class is currently empty but can be used as a common base for scheduler configurations.
+
+2. **Specific scheduler configuration classes** (e.g., `NoneSchedulerConfig`, `ReduceLROnPlateauConfig`):
+   - Each class corresponds to a specific learning rate scheduler.
+   - Inherits from `SchedulerConfig` and extends the base class with scheduler-specific parameters.
+   - Provides default values for parameters such as the learning rate reduction factor, patience, cooldown, etc.
+
+   - **`NoneSchedulerConfig` class**:
+      - Does nothing; essentially, it is a placeholder for the absence of a learning rate scheduler.
+
+   - **`ReduceLROnPlateauConfig` class**:
+      - Reduces the learning rate when a certain metric has stopped improving.
+      - Parameters include the mode (min or max), reduction factor, patience, verbosity, threshold, threshold mode, cooldown, minimum learning rate, and epsilon.
+
+   - **`StepLRConfig` class**:
+      - Reduces the learning rate at specified step intervals.
+      - Parameters include the step size and the multiplicative factor for learning rate decay.
+
+   - **`MultiStepLRConfig` class**:
+      - Reduces the learning rate at multiple specified milestones.
+      - Parameters include a list of milestones and the multiplicative factor for learning rate decay.
+
+These configuration classes provide flexibility in configuring and switching between different learning rate scheduling strategies during the training of your deep learning models.
+
+## 12. trainer.py
+This code defines a comprehensive configuration class for training a deep learning model. Here's a brief explanation:
+
+- **`DLTrainerConfig` class**:
+   - Inherits from `ConfigBase` and serves as the configuration class for training a deep learning model.
+   - Contains parameters for configuring various aspects of the training process:
+      - **`use_cuda`**: Whether to use GPU for training (default is `True`).
+      - **`epochs`**: Number of training epochs (default is `10`).
+      - **`score_method`**: Method for saving the best model, either "accuracy" or "loss" (default is "accuracy").
+      - **`ckpts_dir`**: Directory for saving model checkpoints (default is a "ckpts" folder in the "data" directory).
+      - **`save_ckpt_every_epoch`**: Whether to save checkpoints at every epoch (default is `True`).
+      - **`random_state`**: Random seed for reproducibility (default is `2020`).
+      - **`state_dict_file`**: Path to a checkpoint file to start training from (default is `None`).
+      - **`load_dictionary_from_ckpt`**: Whether to load the dictionary and label2id from the checkpoint file (default is `False`).
+      - **`test_program`**: For testing purposes with a small dataset (default is `False`).
+      - **`early_stop_after`**: Stop training after a certain number of epochs without improvement in the evaluation metric (default is `None`).
+      - **`max_clip_norm`**: Clip the gradient norm if set (default is `None`).
+      - **`do_eval`**: Whether to perform evaluation and model selection (default is `True`).
+      - **`load_best_model_after_train`**: If `do_eval` is `True`, specify whether to load the best model state dict after training (default is `True`).
+      - **`num_batch_to_print`**: Number of batches to print training information (default is `10`).
+
+      - **`optimizer`**: Configuration for the optimizer used in parameter updates (default is `AdamConfig`).
+      - **`scheduler`**: Configuration for the learning rate scheduler (default is `NoneSchedulerConfig`).
+      - **`model`**: Configuration for the deep learning model (default is `DLModelConfig`).
+      - **`data_loader`**: Configuration for the data loader (default is `DataLoaderConfig`).
+      - **`criterion`**: Configuration for the loss criterion (default is `BinaryCrossEntropyLossConfig`).
+
+This configuration class provides a flexible way to customize various aspects of the training process, including model architecture, optimization, data loading, and evaluation.
+
