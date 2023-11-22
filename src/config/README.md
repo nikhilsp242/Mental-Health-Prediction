@@ -43,6 +43,35 @@ This Python code defines a base class for creating configuration objects with de
   - Initializes configuration objects using specified values or defaults.
   - Raises errors for unspecified or overspecified fields during object instantiation.
   - Provides methods like `items()` (returning items as dictionary), `asdict()` (returning configuration as a dictionary), `_replace()` (returning a new configuration with specified changes), `__str__()` (returns a string representation), and `__eq__()` (checks equality with another configuration).
+ 
+  ## 3. classifier.py
+  This code defines configuration classes for text classifiers, particularly for recurrent neural network (RNN) classifiers and Memory Augmented RNN (MRNN) classifiers. Let's break down each class:
+
+1. **`ClassifierConfig` class (Base class for classifiers)**:
+   - Inherits from `ConfigBase` and serves as the base class for all classifier configurations.
+   - Defines two optional parameters:
+      - **`input_size`**: Dimension of the embedding layer. Default is `None`.
+      - **`output_size`**: Size of the output space, corresponding to the number of labels. Default is `None`.
+   - This class provides a common structure for classifier configurations, with input and output size parameters.
+
+2. **`RNNClassifierConfig` class (RNN-based text classifier)**:
+   - Inherits from `ClassifierConfig` and extends the base class.
+   - Adds the following parameters:
+      - **`rnn_config`**: Configuration for the RNN layer, using the `RNNConfig` class.
+      - **`use_attention`**: If `True`, use an attention mechanism to calculate the output state. Default is `False`.
+      - **`dropout`**: Dropout probability for the context. Default is `0.2`.
+   - This class is designed for RNN-based text classification tasks.
+
+3. **`MRNNClassifierConfig` class (Memory Augmented RNN text classifier)**:
+   - Inherits from `ClassifierConfig` and extends the base class.
+   - Adds the following parameters:
+      - **`memory_config`**: Configuration for the memory layer, using the `RNNConfig` class.
+      - **`rnn_config`**: Configuration for the RNN layer, using the `RNNConfig` class.
+      - **`dropout`**: Dropout probability applied in the MRNN input and output layers. Default is `0.2`.
+      - **`window_size`**: Window size for the RNN. Default is `10`.
+   - This class is designed for Memory Augmented RNN-based text classification tasks.
+
+Overall, these configuration classes provide a structured way to define and manage the settings for different types of text classifiers in your machine learning or deep learning project. They allow for flexibility and customization while maintaining a consistent interface. If you have specific questions about these configurations or how they are used in your project, feel free to ask!
   - Defines a method `asdict_deep()` that returns a dictionary representation of the configuration and its nested configurations.
   - Implements a `dump` method to save the default configuration to a JSON file.
 
